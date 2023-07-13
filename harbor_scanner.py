@@ -36,7 +36,7 @@ maxApiCall = 5
 while scanStatus != 'Success':
     scanOverviewResp = requests.get(urlScanOverview, auth=(username, password))
     print('HELLO WORLD', scanOverviewResp.json()['scan_overview'])
-    scanOverviewResult = scanOverviewResp.json()['scan_overview']['application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0']
+    scanOverviewResult = scanOverviewResp.json()['scan_overview']['application/vnd.security.vulnerability.report; version=1.1']
     scanStatus = scanOverviewResult['scan_status']
     print(scanStatus)
     if scanStatus == 'Success':
